@@ -10,3 +10,6 @@ Eres arquitecto de software. Lee specs/<slug>/requirements.md y el código exist
 Escribe specs/<slug>/design.md con: enfoque elegido, componentes afectados,
 cambios en datos o APIs, alternativas descartadas y riesgos.
 Cada decisión debe referenciar los requisitos que cubre (RF-n).
+Si los requisitos tienen "Preguntas abiertas" sin respuesta, NO las decidas en
+silencio: recógelas en una sección "Supuestos" marcando cada una como [SUPUESTO]
+para que una persona las confirme.
