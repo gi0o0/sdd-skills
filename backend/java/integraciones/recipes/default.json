@@ -1,0 +1,132 @@
+{
+  "name": "default",
+  "description": "Flujo SDD para Java con Maven",
+  "phases": [
+    {
+      "name": "specify",
+      "description": "Genera los requisitos a partir de la HU",
+      "command": "spec-specify",
+      "readsStory": true,
+      "asksQuestions": true,
+      "produces": {
+        "file": "requirements.md",
+        "description": "Requisitos y preguntas abiertas"
+      },
+      "tools": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "edit": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "bash": "deny",
+        "webfetch": "deny"
+      },
+      "timeoutS": 3600,
+      "idleTimeoutS": 300
+    },
+    {
+      "name": "plan",
+      "description": "Disena la solucion a partir de los requisitos",
+      "command": "spec-plan",
+      "requires": [
+        "requirements.md"
+      ],
+      "produces": {
+        "file": "design.md",
+        "description": "Diseno tecnico"
+      },
+      "tools": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "edit": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "bash": "deny",
+        "webfetch": "deny"
+      },
+      "timeoutS": 3600,
+      "idleTimeoutS": 300
+    },
+    {
+      "name": "tasks",
+      "description": "Divide el diseno en tareas",
+      "command": "spec-tasks",
+      "requires": [
+        "design.md"
+      ],
+      "produces": {
+        "file": "tasks.md",
+        "description": "Lista de tareas"
+      },
+      "tools": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "edit": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "bash": "deny",
+        "webfetch": "deny"
+      },
+      "timeoutS": 3600,
+      "idleTimeoutS": 300
+    },
+    {
+      "name": "implement",
+      "description": "Implementa las tareas en el codigo",
+      "command": "spec-implement",
+      "requires": [
+        "tasks.md"
+      ],
+      "writes": [
+        "src/"
+      ],
+      "tools": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "edit": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "bash": "deny",
+        "webfetch": "deny"
+      },
+      "timeoutS": 7200,
+      "idleTimeoutS": 900
+    },
+    {
+      "name": "review",
+      "description": "Revisa el codigo implementado y corrige los problemas",
+      "command": "spec-review",
+      "requires": [
+        "tasks.md"
+      ],
+      "produces": {
+        "file": "review.md",
+        "description": "Hallazgos y correcciones de la revision"
+      },
+      "writes": [
+        "src/"
+      ],
+      "tools": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "edit": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "bash": "deny",
+        "webfetch": "deny"
+      },
+      "timeoutS": 3600,
+      "idleTimeoutS": 600
+    }
+  ]
+}

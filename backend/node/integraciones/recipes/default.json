@@ -1,6 +1,6 @@
 {
   "name": "default",
-  "description": "Flujo SDD estandar: requisitos, diseno, tareas, implementacion y revision",
+  "description": "Flujo SDD para Node.js con TypeScript",
   "phases": [
     {
       "name": "specify",
