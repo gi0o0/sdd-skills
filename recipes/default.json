@@ -1,0 +1,28 @@
+{
+  "name": "default",
+  "description": "Flujo SDD estandar: requisitos, diseno y tareas",
+  "phases": [
+    {
+      "name": "specify",
+      "description": "Genera los requisitos a partir de la HU",
+      "command": "spec-specify",
+      "readsStory": true,
+      "asksQuestions": true,
+      "produces": { "file": "requirements.md", "description": "Requisitos y preguntas abiertas" }
+    },
+    {
+      "name": "plan",
+      "description": "Disena la solucion a partir de los requisitos",
+      "command": "spec-plan",
+      "requires": ["requirements.md"],
+      "produces": { "file": "design.md", "description": "Diseno tecnico" }
+    },
+    {
+      "name": "tasks",
+      "description": "Divide el diseno en tareas",
+      "command": "spec-tasks",
+      "requires": ["design.md"],
+      "produces": { "file": "tasks.md", "description": "Lista de tareas" }
+    }
+  ]
+}
