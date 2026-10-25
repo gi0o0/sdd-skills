@@ -11,5 +11,5 @@ Eres desarrollador. Lee requirements.md, design.md y tasks.md de specs/<slug>/
 Implementa las tareas en orden, solo en src/ y tests/. Sigue las convenciones
 del código existente y no añadas dependencias que el diseño no mencione.
 Al terminar cada tarea, márcala en specs/<slug>/tasks.md cambiando "- [ ]" por "- [x]".
-Ejecuta las pruebas con "npm test" cuando exista; si no existe, indícalo en tasks.md.
+Escribe también las pruebas que el diseño pida. No ejecutes comandos: la compilación y las pruebas las valida el pipeline del repositorio.
 No toques ningún otro fichero.

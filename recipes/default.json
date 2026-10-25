@@ -1,6 +1,6 @@
 {
   "name": "default",
-  "description": "Flujo SDD estandar: requisitos, diseno, tareas e implementacion",
+  "description": "Flujo SDD estandar: requisitos, diseno, tareas, implementacion y revision",
   "phases": [
     {
       "name": "specify",
@@ -95,15 +95,40 @@
         "edit": "allow",
         "task": "allow",
         "skill": "allow",
-        "bash": {
-          "*": "deny",
-          "npm test": "allow",
-          "npm run build": "allow"
-        },
+        "bash": "deny",
         "webfetch": "deny"
       },
       "timeoutS": 7200,
       "idleTimeoutS": 900
+    },
+    {
+      "name": "review",
+      "description": "Revisa el codigo implementado y corrige los problemas",
+      "command": "spec-review",
+      "requires": [
+        "tasks.md"
+      ],
+      "produces": {
+        "file": "review.md",
+        "description": "Hallazgos y correcciones de la revision"
+      },
+      "writes": [
+        "src/",
+        "tests/"
+      ],
+      "tools": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "edit": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "bash": "deny",
+        "webfetch": "deny"
+      },
+      "timeoutS": 3600,
+      "idleTimeoutS": 600
     }
   ]
 }
