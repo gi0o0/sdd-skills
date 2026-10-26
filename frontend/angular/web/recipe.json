@@ -9,7 +9,7 @@
       "readsStory": true,
       "asksQuestions": true,
       "produces": {
-        "file": "requirements.md",
+        "file": "specify.md",
         "description": "Requisitos y preguntas abiertas"
       },
       "tools": {
@@ -31,10 +31,10 @@
       "description": "Disena la solucion a partir de los requisitos",
       "command": "spec-plan",
       "requires": [
-        "requirements.md"
+        "specify.md"
       ],
       "produces": {
-        "file": "design.md",
+        "file": "plan.md",
         "description": "Diseno tecnico"
       },
       "tools": {
@@ -56,7 +56,7 @@
       "description": "Divide el diseno en tareas",
       "command": "spec-tasks",
       "requires": [
-        "design.md"
+        "plan.md"
       ],
       "produces": {
         "file": "tasks.md",
@@ -83,6 +83,10 @@
       "requires": [
         "tasks.md"
       ],
+      "produces": {
+        "file": "implement.md",
+        "description": "Resumen de la implementacion y de la revision"
+      },
       "writes": [
         "src/"
       ],
@@ -105,12 +109,8 @@
       "description": "Revisa el codigo implementado y corrige los problemas",
       "command": "spec-review",
       "requires": [
-        "tasks.md"
+        "implement.md"
       ],
-      "produces": {
-        "file": "review.md",
-        "description": "Hallazgos y correcciones de la revision"
-      },
       "writes": [
         "src/"
       ],
